@@ -1,816 +1,503 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/newcss.css" />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-    />
-    <!-- Standard Favicon -->
-<link rel="icon" type="image/png" href="favicon_io/favicon-32x32.png">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhant Jaiswal | Backend Architect & AI Engineer</title>
+    <link rel="icon" type="image/x-icon" href="Image/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        background: '#030712', // Very dark slate
+                        surface: '#111827',
+                        surfaceHighlight: '#1f2937',
+                        primary: '#3b82f6', // Blue
+                        secondary: '#8b5cf6', // Violet
+                        accent: '#10b981', // Emerald
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tech-pill {
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
 
-<!-- For browsers that support .ico -->
-<link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+    <!-- Background Glow Effects -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-blob animation-delay-4000"></div>
+    </div>
 
-  </head>
-
-  <body oncontextmenu="return false">
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#" class="nav__logo">Siddhant</a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list grid">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">
-                <i class="uil uil-estate nav__icon"></i>Home
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">
-                <i class="uil uil-user nav__icon"></i>About
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#skills" class="nav__link">
-                <i class="uil uil-file-alt nav__icon"></i>Skills
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#qualification" class="nav__link">
-                <i class="uil uil-briefcase-alt nav__icon"></i>Qualification
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#portfolio" class="nav__link">
-                <i class="uil uil-scenery nav__icon"></i>Projects
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">
-                <i class="uil uil-message nav__icon"></i>Contact-Me
-              </a>
-            </li>
-          </ul>
-          <i class="uil uil-times nav__close" id="nav-close"></i>
-        </div>
-        <div class="nav__btns">
-          <!-- Theme change button -->
-          <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="uil uil-apps"></i>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- main-->
-
-    <main class="main">
-      <!--========================= Home =====================-->
-
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <div class="home__content grid">
-            <div class="home__social">
-              <a href="https://www.linkedin.com/in/sddhantjaiii/" target="_blank" class="home__social-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="home__icon" style="width: 20px; height: 20px;">
-              </a>
-              
-              <a href="https://github.com/sddhantjaiii/" target="_blank" class="home__social-icon">
-                <i class="uil uil-github-alt home__icon"></i>
-              </a>
-              
-              <a href="https://www.geeksforgeeks.org/user/sddhantjaiii/" target="_blank" class="home__social-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks" class="home__icon" style="width: 20px; height: 20px;">
-              </a>
-              
-              <a href="https://leetcode.com/sddhantjaiii/" target="_blank" class="home__social-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="home__icon" style="width: 20px; height: 20px;">
-              </a>
-              
-            </div>
-            <div class="home__img">
-              <svg
-                class="home__blob"
-                viewBox="0 0 200 187"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <mask id="mask0" mask-type="alpha">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                      130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                      97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                      0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                      165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                      129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                  <image
-                    class="home__blob-img"
-                    x="-79"
-                    y="-46"
-                    xlink:href="assets/img/Pro.jpg"
-                  />
-                </g>
-              </svg>
-            </div>
-            <div class="home__data">
-              <h1 class="home__title">Hi, I'm Siddhant Jaiswal</h1>
-              <h3 class="home__subtitle">
-                Computer Science & Engineering Student
-              </h3>
-              <p class="home__description">
-                A third-year undergraduate engineering student at
-                <strong>VIT Bhopal </strong>
-              </p>
-              <a href="#contact" class="button button--flex">
-                Contact me<i class="uil uil-message button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="home__scroll">
-            <a href="#about" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scroll-name">Scroll down</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold font-mono tracking-tighter">
+                &lt;SJ /&gt;
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!--======================= About========================-->
-
-      <section class="about section" id="about">
-        <h2 class="section__title">About Me</h2>
-        <span class="section__subtitle">My introduction</span>
-
-        <div class="about__container container grid">
-          <img src="assets\img\about.jpg" alt="" class="about__img" />
-
-          <div class="about__data">
-            <p class="about__description">
-              I'm a third-year Computer Science student at VIT Bhopal University (8.62 GPA, 2026) with skills in Python, Java, C++, and JavaScript. Experienced in mobile
-              development, machine learning, and scalable systems. Proven leadership and teamwork abilities. 1+ year of programming experience. Ready to
-              contribute to software development</p>
-
-            <div class="about__info">
-              <div>
-                <span class="about__info-title">8.62</span>
-                <span class="about__info-name">Aggregate <br />CGPA</span>
-              </div>
-
-              <div>
-                <span class="about__info-title">04+</span>
-                <span class="about__info-name"
-                  >
-                  Projects</span
-                >
-              </div>
-
-              <div>
-                <span class="about__info-title">150+</span>
-                <span class="about__info-name">Leetcode <br />DSA</span>
-              </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#expertise" class="hover:text-white transition-colors">Expertise</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="https://github.com/sddhantjaiii" target="_blank" class="text-white bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition-all flex items-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                </a>
             </div>
 
-            <div class="about__buttons">
-              <a download="" href="assets\MyCV.pdf" class="button button--flex">
-                Download CV<i class="fas fa-download button__icon"></i>
-              </a>
-            </div>
-          </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-300 hover:text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
-      </section>
-
-      <!--===================== SKILLS =====================-->
-
-      <section class="skills section" id="skills">
-        <h2 class="section__title">Skills</h2>
-        <span class="section__subtitle">My technical level</span>
-
-        <div class="skills__container container grid">
-          <div>
-            <!--==================== Skill 1 =================-->
-            <div class="skills__content skills__open">
-              <div class="skills__header">
-                <i class="fas fa-pencil-ruler skills__icon"></i>
-
-                <div>
-                  <h1 class="skills__title">Programming Languages</h1>
-                </div>
-
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-              
-
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">C++</h3>
-                  </div>
-                  
-                </div>
-                
-                  <div class="skills__data">
-                    <div class="skills__titles">
-                      <h3 class="skills__name">Java</h3>
-                    </div>
-                    
         
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gray-800 p-4">
+            <div class="flex flex-col gap-4 text-gray-300">
+                <a href="#about" class="hover:text-white">About</a>
+                <a href="#expertise" class="hover:text-white">Expertise</a>
+                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="flex-1 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        OPEN FOR SDE ROLES • FEB 2026
+                    </div>
                     
-                  </div>
-                  <div class="skills__data">
-                    <div class="skills__titles">
-                      <h3 class="skills__name"> (HTML,CSS,JavaScript,PHP)</h3>
-                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                        Architecting <br>
+                        <span class="text-gradient">Scalable Systems</span>
+                    </h1>
                     
-                  </div>
-                  <div class="skills__data">
-                    <div class="skills__titles">
-                      <h3 class="skills__name">Python</h3>
+                    <p class="text-lg text-gray-400 max-w-2xl leading-relaxed">
+                        I am Siddhant Jaiswal, a Backend-Heavy Full Stack Engineer. I don't just write code; I build production-grade architectures handling thousands of requests, migrating legacy systems, and integrating complex AI models.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-primary hover:bg-blue-600 text-white px-8 py-3.5 rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                            View Production Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="mailto:sddhantjaiii@gmail.com" class="glass-card hover:bg-white/5 text-gray-300 px-8 py-3.5 rounded-xl font-semibold transition-all border border-gray-700">
+                            Contact Me
+                        </a>
                     </div>
-                   
-                  </div>
-                  <div class="skills__data">
-                    <div class="skills__titles">
-                      <h3 class="skills__name">GO</h3>
+
+                    <!-- Metrics -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-gray-800">
+                        <div>
+                            <div class="text-2xl font-bold text-white font-mono">500+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">LeetCode Solved</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-mono">5+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">Paid SaaS Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-mono">99%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">System Uptime</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-mono">50k+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider">Lines of Code</div>
+                        </div>
                     </div>
                 </div>
                 
-                
-              </div>
-            </div>
-
-            <!--==================== Skill 2 =================-->
-            <div class="skills__content skills__close">
-              <div class="skills__header">
-                <i class="fas fa-code skills__icon"></i>
-
-                <div>
-                  <h1 class="skills__title">IT Constructs</h1>
-                </div>
-
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">DBMS</h3>
-                  </div>
-                  
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">DS & Algorithms</h3>
-                  </div>
-                  
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">OOP</h3>
-                  </div>
-                  
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">OS</h3>
-                  </div>
-                  
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Computer Networks</h3>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <!--==================== Skill 3: Technologies =================-->
-<div class="skills__content skills__close">
-  <div class="skills__header">
-    <i class="fas fa-swatchbook skills__icon"></i>
-    <div>
-      <h1 class="skills__title">Technologies</h1>
-    </div>
-    <i class="uil uil-angle-down skills__arrow"></i>
-  </div>
-
-  <div class="skills__list grid">
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Git</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Docker</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">MongoDB</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">MySQL</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">ReactJs</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">NodeJs</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Linux</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--==================== Skill 4: Development =================-->
-<div class="skills__content skills__close">
-  <div class="skills__header">
-    <i class="fas fa-swatchbook skills__icon"></i>
-    <div>
-      <h1 class="skills__title">Development</h1>
-    </div>
-    <i class="uil uil-angle-down skills__arrow"></i>
-  </div>
-
-  <div class="skills__list grid">
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Google Cloud</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Machine Learning</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Scalable Systems</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Spring Boot</h3>
-      </div>
-    </div>
-    <div class="skills__data">
-      <div class="skills__titles">
-        <h3 class="skills__name">Mobile Development</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-                  
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== Qualifications ==================-->
-
-      <section
-        class="qualification__section service__section"
-        id="qualification"
-      >
-        <h2 class="section__title">Qualification</h2>
-        <span class="section__subtitle">My personal journey</span>
-
-        <div
-          class="qualification__container container grid services__container"
-        >
-          <div class="qualification__tabs">
-            <div
-              class="qualification__button button--flex qualification__active"
-              data-target="#education"
-            >
-              <i class="uil uil-graduation-cap qualification__icon"></i>
-              Education
-            </div>
-          </div>
-
-          <div class="qualification__sections">
-            <!--====== Qualification Content 1 ======-->
-            <div
-              class="qualification__content qualifiation__active services__content"
-              data-content
-              id="education"
-            >
-              <!--====== Qualification 1 ======-->
-              <div class="qualification__data">
-                <div>
-                  <h3 class="qualification__title">Class 10th</h3>
-                  <span class="qualification__subtitle"
-                    >G.P.M College<br />ICSE</span
-                  >
-                  <div class="qualification__calender">
-                    <i class="uil uil-calendar-alt"></i>
-                    - 2019
-                  </div>
-                  <span
-                    class="button button--flex button--small button--link services__button"
-                  >
-                    View More
-                    <i class="uil uil-arrow-right button__icon"></i>
-                  </span>
-                  <div class="services__modal">
-                    <div class="services__modal-content">
-                      <h4 class="services__modal-title">
-                        Class 10th Summary :
-                      </h4>
-                      <i class="uil uil-times services__modal-close"></i>
-                      <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__moda-icon"
-                          ></i>
-                          <p>
-                            Subjects studied: Science, Maths, English, Computer Science, History & Civics, Hindi.
-                          </p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__moda-icon"
-                          ></i>
-                          <p>Scored 85%</p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__moda-icon"
-                          ></i>
-                          <p>Established the first Sanskrit club in a multicultural setting, organizing training sessions for 100 students.
-                          </p>
-                        </li>
-                      </ul>
+                <!-- Hero Visual -->
+                <div class="w-full lg:w-[400px] aspect-square relative group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <div class="glass-card w-full h-full rounded-3xl p-2 relative overflow-hidden flex items-center justify-center bg-gray-900">
+                        <img src="Image/Self.jpg" alt="Siddhant Jaiswal" class="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500">
                     </div>
-                  </div>
                 </div>
-
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-              </div>
-
-              <!--====== Qualification 2 ======-->
-              <div class="qualification__data">
-                <div></div>
-
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-                <div>
-                  <h3 class="qualification__title">Class 12th</h3>
-                  <span class="qualification__subtitle"
-                    >G.P.M College <br />ISC</span
-                  >
-                  <div class="qualification__calender">
-                    <i class="uil uil-calendar-alt"></i>
-                    - 2021
-                  </div>
-                  <span
-                    class="button button--flex button--small button--link services__button"
-                  >
-                    View More
-                    <i class="uil uil-arrow-right button__icon"></i>
-                  </span>
-                  <div class="services__modal">
-                    <div class="services__modal-content">
-                      <h4 class="services__modal-title">
-                        Class 12th Summary :
-                      </h4>
-                      <i class="uil uil-times services__modal-close"></i>
-                      <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__moda-icon"
-                          ></i>
-                          <p>
-                            Subjects studied: Physics, Chemistry, Maths,
-                            English, Computer Science.
-                          </p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__moda-icon"
-                          ></i>
-                          <p>Scored 85.5%</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!--====== Qualification 3 ======-->
-              <div class="qualification__data">
-                <div>
-                  <h3 class="qualification__title">College</h3>
-                  <span class="qualification__subtitle"
-                    >VIT Bhopal</span
-                  >
-                  <div class="qualification__calender">
-                    <i class="uil uil-calendar-alt"></i>
-                    2022 - 2026
-                  </div>
-                  <span
-                    class="button button--flex button--small button--link services__button"
-                  >
-                    View More
-                    <i class="uil uil-arrow-right button__icon"></i>
-                  </span>
-                  <div class="services__modal">
-                    <div class="services__modal-content">
-                      <h4 class="services__modal-title">College Summary :</h4>
-                      <i class="uil uil-times services__modal-close"></i>
-                      <ul class="services__modal-services grid">
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__modal-icon"
-                          ></i>
-                          <p>
-                            Studying core subjects of IT including DSA, Embedded
-                            systems, Design analysis and algorithm, Operating
-                            systems, Computer Networks, and Computer architecture .
-                          </p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__modal-icon"
-                          ></i>
-                          <p>Scored an aggregate of 8.62 CGPA till now.</p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__modal-icon"
-                          ></i>
-                          <p>
-                            Secured first place in a coding competition hosted by the Cloud Computing Club, outperforming 30+ teams and showcasing strong
-problem-solving and coding skills
-                          </p>
-                        </li>
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__modal-icon"
-                          ></i>
-                          <p>
-                            Community founder of LC/NC.
-                          </p>
-                        </li>
-                        
-                        <li class="services__modal-service">
-                          <i
-                            class="uil uil-check-circle services__modal-icon"
-                          ></i>
-                          <p>
-                            Solved 150+ medium-level LeetCode problems, demonstrating strong problem-solving skills and improving algorithmic thinking.
-
-                          </p>
-                        </li>
-                        
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <!--<span class="qualification__line"></span>-->
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!--=================== Portfolio ===================-->
-      <section class="portfolio section" id="portfolio">
-        <h2 class="section__title">Projects</h2>
-        <span class="section__subtitle">Most recent work</span>
+        <!-- Expertise / Skills Section -->
+        <section id="expertise" class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">Technical Arsenal</h2>
+                    <p class="text-gray-400">Tools I use to build scalable solutions.</p>
+                </div>
+            </div>
 
-        <div class="portfolio__container container swiper-container">
-          <div class="swiper-wrapper">
-            
-            <!-- ------------------------portfollio 1-------------------- -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Backend -->
+                <div class="glass-card p-8 rounded-2xl hover:border-blue-500/30 transition-colors group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Backend Mastery</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Python</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Go (Golang)</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Redis</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Microservices</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Docker</span>
+                    </div>
+                </div>
 
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio1.png" class="portfolio__img" />
+                <!-- AI Engineering -->
+                <div class="glass-card p-8 rounded-2xl hover:border-purple-500/30 transition-colors group">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI Engineering</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">GPT-4 Integration</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">RAG</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Voice AI (Bolna)</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Prompt Eng</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Hybrid Recommenders</span>
+                    </div>
+                </div>
 
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">
-                  Time Travel Debugger
-                </h3>
-                <p class="portfolio__description">
-                  Created a Python library for stepping backward in code execution, inspired by dry runs while solving LeetCode problems. Published on
-PyPI: 👉 pip install time-travel-debugger
+                <!-- Full Stack -->
+                <div class="glass-card p-8 rounded-2xl hover:border-emerald-500/30 transition-colors group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Frontend & Mobile</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">React Native</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Next.js 15</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">TypeScript</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Expo</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-gray-300 font-mono">Kotlin (Modules)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Projects Section -->
+        <section id="projects" class="max-w-7xl mx-auto px-6 mb-32">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+                <i data-lucide="cpu" class="text-primary"></i> Featured Production Work
+            </h2>
+
+            <div class="space-y-12">
+                
+                <!-- Project 1: SniperThink -->
+                <div class="glass-card rounded-3xl p-8 md:p-10 border-l-4 border-l-blue-500 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 bg-blue-500/10 rounded-bl-2xl text-blue-400 font-mono text-xs">
+                        B2B SaaS • LIVE
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-2">SniperThink AI CRM</h3>
+                                <p class="text-lg text-blue-400 font-medium">Enterprise AI Calling Platform</p>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed">
+                                A comprehensive B2B SaaS platform enabling businesses to automate outbound calling campaigns using AI voice agents. Currently serving 5 paid clients with 100+ daily calls.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Architecture:</strong> 80+ microservices handling concurrent AI voice streams with zero latency.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Migration Success:</strong> Zero-downtime migration from ElevenLabs to Bolna.ai for voice synthesis.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Resilience:</strong> Implemented bulletproof concurrency management using global locks.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Node.js</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">PostgreSQL</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Bolna.ai</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">React 18</span>
+                            </div>
+                            <div class="flex gap-4 pt-4">
+                                <a href="https://agenttest.sniperthink.com" target="_blank" class="flex items-center gap-2 text-white hover:text-blue-400 transition-colors font-medium">
+                                    <i data-lucide="globe"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/sddhantjaiii/Calling-agent-with-bolna" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github"></i> Backend Repo
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Project Image -->
+                        <div class="rounded-xl overflow-hidden border border-white/5 relative group-hover:border-blue-500/20 transition-all h-64 md:h-auto">
+                            <img src="Image/crm.png" alt="SniperThink CRM Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: The Club -->
+                <div class="glass-card rounded-3xl p-8 md:p-10 border-l-4 border-l-purple-500 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-3 bg-purple-500/10 rounded-bl-2xl text-purple-400 font-mono text-xs">
+                        MOBILE • VIDEO
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <!-- Project Image (Left on Desktop) -->
+                        <div class="rounded-xl overflow-hidden border border-white/5 order-2 md:order-1 relative group-hover:border-purple-500/20 transition-all h-64 md:h-auto">
+                             <img src="Image/TheClub.jpeg" alt="The Club Mobile App" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+
+                        <div class="space-y-6 order-1 md:order-2">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-2">The Club</h3>
+                                <p class="text-lg text-purple-400 font-medium">Service Marketplace with Video Feeds</p>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed">
+                                A revolutionary cross-platform mobile app connecting creators with buyers via reels. 50,000+ lines of code, combining complex video engineering with seamless UI.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Video Pipeline:</strong> Custom FFmpeg server on Railway, reducing file size by 40% (CRF 23).</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Native Modules:</strong> Wrote custom Kotlin code for ExoPlayer caching, achieving 85% cache hit rate.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Hybrid AI:</strong> Collaborative filtering algorithm for personalized feed recommendations.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">React Native</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Supabase</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Kotlin</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">FFmpeg</span>
+                            </div>
+                            <div class="flex gap-4 pt-4">
+                                <a href="https://github.com/ideatheclub1/TheclubFinalBuild" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: HRMS -->
+                <div class="glass-card rounded-3xl p-8 md:p-10 border-l-4 border-l-emerald-500 relative overflow-hidden group">
+                     <div class="absolute top-0 right-0 p-3 bg-emerald-500/10 rounded-bl-2xl text-emerald-400 font-mono text-xs">
+                        ENTERPRISE SYSTEM
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-2">HRMS Production System</h3>
+                                <p class="text-lg text-emerald-400 font-medium">Automated Payroll & Attendance</p>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed">
+                                Lead Architect for a production HRMS that replaced manual Excel tracking. Features face detection attendance, automated payroll engines, and tenant-specific logic.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Backend Power:</strong> Python Django + Celery + Redis for asynchronous processing of payroll calculations.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0"></i>
+                                    <span class="text-gray-300 text-sm"><strong class="text-white">Data Integrity:</strong> Optimized PostgreSQL schema with critical indexes for reporting speed.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-4">
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Django</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Celery</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Redis</span>
+                                <span class="tech-pill px-3 py-1 rounded-full text-xs font-mono">Docker</span>
+                            </div>
+                        </div>
+                        <!-- Project Image -->
+                        <div class="rounded-xl overflow-hidden border border-white/5 relative group-hover:border-emerald-500/20 transition-all h-64 md:h-auto">
+                            <img src="Image/HRMS.png" alt="HRMS Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Grid for other projects -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Time Travel Debugger -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden relative">
+                             <img src="Image/Time travel debugger.png" alt="Time Travel Debugger" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                             <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                        </div>
+                        <div class="p-6 pt-2 flex-1 flex flex-col">
+                            <h4 class="text-xl font-bold mb-2">Time-Travel Debugger</h4>
+                            <p class="text-sm text-gray-400 mb-4 flex-1">Python library enabling step-backward debugging, inspired by competitive programming dry-runs. Published on PyPI.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-blue-300">Python</span>
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-blue-300">PyPI</span>
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-blue-300">Library Design</span>
+                            </div>
+                            <a href="https://pypi.org/project/time-travel-debugger/" target="_blank" class="text-sm text-blue-400 hover:text-white flex items-center gap-1 mt-auto">View on PyPI <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- AI Product Recommender -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden relative">
+                             <img src="Image/Recommendation system.png" alt="Recommendation System" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                             <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                        </div>
+                        <div class="p-6 pt-2 flex-1 flex flex-col">
+                            <h4 class="text-xl font-bold mb-2">E-Commerce AI Recommender</h4>
+                            <p class="text-sm text-gray-400 mb-4 flex-1">Intelligent system using OpenAI GPT-4o-mini for personalized, explained recommendations with Admin Testing Panel.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-purple-300">Next.js 15</span>
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-purple-300">OpenAI</span>
+                                <span class="text-xs bg-white/5 px-2 py-1 rounded text-purple-300">Prisma</span>
+                            </div>
+                            <a href="https://recommendationsystem.siddhantjaiswal.tech" target="_blank" class="text-sm text-blue-400 hover:text-white flex items-center gap-1 mt-auto">Live Demo <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-4xl mx-auto px-6 mb-20">
+            <div class="glass-card rounded-[2.5rem] p-12 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
+                
+                <h2 class="text-4xl font-bold mb-6 relative z-10">Ready to scale your backend?</h2>
+                <p class="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">
+                    I am currently available for Full-time Software Engineering roles (starting July 2026) and collaborative projects.
                 </p>
-                <a
-                  href="https://github.com/sddhantjaiii/Time-Travel-debugger"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon"></i>
-                </a>
-                <a
-                  href="WIP"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  See Live
-                  <i class="uil uil-external-link-alt button__icon"></i>
-                </a>
-              </div>
+                
+                <div class="flex flex-wrap justify-center gap-6 relative z-10">
+                    <a href="mailto:sddhantjaiii@gmail.com" class="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors flex items-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i> sddhantjaiii@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/sddhantjaiii" target="_blank" class="glass-card bg-white/5 hover:bg-white/10 px-6 py-3 rounded-xl font-bold transition-colors flex items-center gap-2">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-blue-400"></i> LinkedIn
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <!-- ------------------------portfollio 3-------------------- -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio2.png" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">QR Code Scanner</h3>
-                <p class="portfolio__description">
-                  Built a Flutter-based Python app for QR code scanning using pzbar and OpenCV, deployed on Google Cloud with Docker for
-                  scalability                
-                </p>
-                <a
-                  href="https://github.com/sddhantjaiii/Projects/tree/main/QR-Scanner-Flask"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon"></i>
-                </a>
-                <a
-                  href="https://qr-app-617349892806.us-central1.run.app/"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  See Live
-                  <i class="uil uil-external-link-alt button__icon"></i>
-                </a>
-              </div>
-            
-          </div>
-
-          <!-- add arrows -->
-          <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-          </div>
-          <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-          </div>
-          <!-- add pagination -->
-          <div class="swiper-pagination"></div>
-        </div>
-      </section>
-
-      <!--===================== Contact Me =====================-->
-      <section class="contact section" id="contact">
-        <h2 class="section__title">Contact Me</h2>
-        <span class="section__subtitle">Get in touch</span>
-
-        <div class="contact__container container grid">
-          <div>
-            <div class="contact__information">
-              <i class="uil uil-calling contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">Contact Me</h3>
-                <span class="contact__subtitle"
-                  ><a href="tel:8979556941"></a>8979556941</span
-                >
-              </div>
-            </div>
-
-            <div class="contact__information">
-              <i class="uil uil-envelope-minus contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">Email</h3>
-                <span class="contact__subtitle"
-                  >sddhantjaiii@gmail.com</span
-                >
-              </div>
-            </div>
-
-            <div class="contact__information">
-              <i class="uil uil-map-marker contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">Location</h3>
-                <span class="contact__subtitle"
-                  >VIT Bhopal, MP, India</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <form action="" class="contact__form grid">
-            <div class="contact__inputs grid">
-              <div class="contact__content">
-                <label for="" class="content__label">Name</label>
-                <input type="text" class="contact__input" />
-              </div>
-
-              <div class="contact__content">
-                <label for="" class="content__label">Email</label>
-                <input type="Email" class="contact__input" />
-              </div>
-            </div>
-
-            <div class="contact__content">
-              <label for="" class="content__label">Message</label>
-              <textarea
-                name=""
-                id=""
-                cols="0"
-                rows="7"
-                class="contact__input"
-              ></textarea>
-            </div>
-
+        <!-- Footer -->
+        <footer class="max-w-7xl mx-auto px-6 py-8 border-t border-gray-800 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <div>
-              <a
-                href=" mailto: sddhantjaiii@gmail.com?subject=Testing out mailto! &body=This is only a test!"
-                class="button button--flex"
-              >
-                Send Message
-                <i class="uil uil-message button__icon"></i>
-              </a>
+                &copy; 2026 Siddhant Jaiswal. Built with Next-Gen Architectures.
             </div>
-          </form>
-        </div>
-      </section>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="https://github.com/sddhantjaiii" class="hover:text-white">GitHub</a>
+                <a href="https://linkedin.com/in/sddhantjaiii" class="hover:text-white">LinkedIn</a>
+                <a href="https://leetcode.com/sddhantjaiii/" class="hover:text-white">LeetCode (500+)</a>
+            </div>
+        </footer>
+
     </main>
 
-    <!--================== Footer ===============-->
-    <footer class="footer">
-      <div class="footer__bg">
-        <div class="footer__container container grid">
-          <div>
-            <h1 class="footer__title">Siddhant</h1>
-            <span class="footer__subtitle"
-              >Computer Science & Engineering Student</span
-            >
-          </div>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
 
-          <ul class="footer__links">
-            <li>
-              <a href="#qualification" class="footer__link">Qualification</a>
-            </li>
-            <li>
-              <a href="#portfolio" class="footer__link">Portfolio</a>
-            </li>
-            <li>
-              <a href="#contact" class="footer__link">Contact-Me</a>
-            </li>
-          </ul>
+        // Reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-          
-        </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-        <p class="footer__copy">&#169; Siddhant. All right reserved</p>
-      </div>
-    </footer>
-
-    <!--================== SCROLL TOP ==================-->
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
-
-    <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
-    <script src="assets/ptj.js"></script>
-  </body>
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
